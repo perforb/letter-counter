@@ -1,0 +1,152 @@
+=head1 NAME
+
+Letter-Counter - jQuery plug-in
+
+=head1 SYNOPSIS
+
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
+    <script src="letter.counter.js?v1.0" type="text/javascript"></script>
+    <script type="text/javascript">
+      //<![CDATA[
+        $(function() {
+          $('#text1').limitLetterTo();
+          $('#text2').limitLetterTo({
+            allowed:          100,
+            warning:          10,
+            cssClass:         'otherCounter',
+            counterElem :     'span',
+            cssClassWarn:     'otherWarning',
+            cssClassExceeded: 'otherExceeded'
+          });
+          $('#text3').limitLetterTo();
+          $('#text4').countLetter();
+        });
+      //]]>
+    </script>
+    <style type="text/css">
+      .counter{
+        font-size:20px;
+        font-weight:bold;
+        color:#ccc;
+      }
+      .otherCounter{
+        font-size:40px;
+        color:blue;
+      }
+      .warning{
+        color:#600;
+      }
+      .otherWarning{
+        color:yellow;
+      }
+      .exceeded{
+        color:#e00;
+      }
+      .otherExceeded{
+        color:green;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <textarea id="text1" name="text1"></textarea>
+    </div>
+    <div>
+      <textarea id="text2" name="text2"></textarea>
+    </div>
+    <div>
+      <input id="text3" name="text3" type="text" />
+    </div>
+    <div>
+      <textarea id="text4" name="text4"></textarea>
+    </div>
+  </body>
+  </html>
+
+=head1 DESCRIPTION
+
+Letter-Counter is a jQuery plug-in.
+
+This plug-in offers the function to count the number of characters in real time like twitter.
+
+=head2 NOTE
+
+Only in case of the textarea and input field can you use this plugin.
+
+=head1 Extension of a jQuery Object
+
+=head2 letterCounter.INTERVAL
+
+This constant is specified the processing interval on the millisecond. 
+
+=head2 letterCounter.isTextField
+
+This method checks the node type.
+
+Only in case of the textarea and input field can you use this plugin.
+
+=head1 METHODS
+
+=head2 limitLetterTo
+
+This method counts the letters with limiter in real time.
+
+=head3 METHOD OPTIONS(and default values)
+
+=head4 allowed: 140
+
+The character limit you wish to set for your text area or input field. It must be a number.
+
+=head4 warning: 25
+
+When remaining characters reach the number set with this option the "warning" css class name will be applied to the counter element.
+
+=head4 counterElem: 'span'
+
+The type of element you wish to choose as your "counter" element. By default it is a SPAN element, but you can use paragraphs, divs, strongs, ems...
+
+=head4 cssClass: 'counter'
+
+Class name added to the counter element. Use this class name as a css selector to describe element's appearance.
+
+=head4 cssClassWarn: 'warning'
+
+Class name added to the counter element once the character count reaches the "warning" number.
+
+=head4 cssClassExceeded: 'exceeded'
+
+Class name added to the counter element once the character count reaches zero.
+
+=head2 countLetter
+
+This method counts the letters in real time.
+
+=head3 METHOD OPTIONS(and default values)
+
+=head4 counterElem: 'span'
+
+The type of element you wish to choose as your "counter" element. By default it is a SPAN element, but you can use paragraphs, divs, strongs, ems...
+
+=head4 cssClass: 'counter'
+
+Class name added to the counter element. Use this class name as a css selector to describe element's appearance.
+
+=head2 render
+
+This is private method.
+
+
+=head1 AUTHOR
+
+plasticster E<lt>perfumed-garden@plasticster.netE<gt>
+
+=head1 LICENSE
+
+This program is free software; Licensed under the MIT license:
+http://www.opensource.org/licenses/mit-license.php
+
+=cut
