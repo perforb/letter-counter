@@ -142,7 +142,7 @@ This is private method.
 
 =head1 AUTHOR
 
-plasticster E<lt>perfumed-garden@plasticster.netE<gt>
+perforb E<lt>dev.perfumed.garden@gmail.comE<gt>
 
 =head1 LICENSE
 

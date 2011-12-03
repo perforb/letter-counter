@@ -2,10 +2,10 @@
  * Letter-Counter - jQuery plugin
  * Dynamic character count for text areas and input fields
  * version 1.0 (16-AUG-2011)
- * Copyright (c) 2011 plasticster
+ * Copyright (c) 2011 perforb
  * Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
  * Depends the jQuery library: http://jquery.com
- * Examples and documentation at: https://github.com/plasticster
+ * Examples and documentation at: https://github.com/perforb
  */
 (function($) {
 
