@@ -1,4 +1,4 @@
-.broaden,
+.expand,
 .counter,
 .letterCount {
     margin: 0px 0px 10px 5px;
@@ -11,6 +11,6 @@
 }
 
 .modal {
-    width: 300px;
-    left: 60%;
+    width: 200px;
+    left: 70%;
 }

@@ -3,51 +3,68 @@
   <head>
     <title>Letter Counter</title>
     <meta charset="utf-8" />
-    <!-- <link rel="stylesheet" type="text/css" href="css/bootswatch-spruce.css" /> -->
-    <link rel="stylesheet" type="text/css" href="css/bootswatch-spacelab.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="bootstrap/docs/assets/css/bootstrap.css" /> -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/bootswatch-cerulean.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap-alert.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap-transition.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap-modal.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap-dropdown.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap-scrollspy.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap-tab.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap-tooltip.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap-popover.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap-button.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap-collapse.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap-carousel.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap-typeahead.js"></script>
+    <script type="text/javascript" src="js/bootstrap-alert.js"></script>
+    <script type="text/javascript" src="js/bootstrap-transition.js"></script>
+    <script type="text/javascript" src="js/bootstrap-modal.js"></script>
+    <script type="text/javascript" src="js/bootstrap-dropdown.js"></script>
+    <script type="text/javascript" src="js/bootstrap-scrollspy.js"></script>
+    <script type="text/javascript" src="js/bootstrap-tab.js"></script>
+    <script type="text/javascript" src="js/bootstrap-tooltip.js"></script>
+    <script type="text/javascript" src="js/bootstrap-popover.js"></script>
+    <script type="text/javascript" src="js/bootstrap-button.js"></script>
+    <script type="text/javascript" src="js/bootstrap-collapse.js"></script>
+    <script type="text/javascript" src="js/bootstrap-carousel.js"></script>
+    <script type="text/javascript" src="js/bootstrap-typeahead.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </head>
   <body>
 
-    <div id="header" class="navbar navbar-fixed-top">
+    <!-- Modal
+         ================================================== -->
+    <div id="limit-modal" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <h4 id="limitLabel">Limit Number</h4>
+      </div>
+      <div class="modal-footer">
+        <input type="text" id="limit" min="1" maxlength="6" placeholder="number only" class="input-small" style="float: left;" />
+        <button id="save" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">save</button>
+      </div>
+    </div>
+
+    <!-- Header
+         ================================================== -->
+    <div id="header" class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container" style="margin: 0px 0px 0px 40px;">
+        <div class="container-fluid" style="margin: 0px 0px 0px 20px;">
           <a class="brand" href="#">Letter Counter</a>
-          This service supports writing a report, a career and more.
+          <div class="nav-collapse" id="main-menu">
+            <ul class="nav pull-right" id="main-menu-right">
+              <li><a href="#">This service supports writing a report, a career and more.</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Main content
          ================================================== -->
-    <div id="main" class="container-fluid" style="margin: 60px 0px 0px 20px;">
+    <div id="main" class="container-fluid" style="margin: 70px 0px 0px 20px;">
       <div class="row-fluid">
         <div class="span12" style="ali">
           <div>
             <textarea id="text" style="float: left; width: 60%;"></textarea>
           </div>
           <div>
-            <img class="broaden" title="resize" data-content="test" src="img/glyphicons/glyphicons_190_circle_plus.png" />
-            <img class="broaden" title="resize" data-content="test" src="img/glyphicons/glyphicons_191_circle_minus.png" style="display: none;" />
+            <img class="expand" title="expand" data-content="Expands the textarea." src="img/glyphicons/glyphicons_190_circle_plus.png" />
+            <img class="expand" title="shrink" data-content="Shrinks the textarea." src="img/glyphicons/glyphicons_191_circle_minus.png" style="display: none;" />
           </div>
           <div>
-            <img class="counter" title="countup" data-content="test" src="img/glyphicons/glyphicons_218_circle_arrow_top.png" />
-            <img class="counter" title="countdown" data-content="test" src="img/glyphicons/glyphicons_219_circle_arrow_down.png" style="display: none;" />
+            <img class="counter" title="countup" data-content="Count up the letters." src="img/glyphicons/glyphicons_218_circle_arrow_top.png" />
+            <img class="counter" title="countdown" data-content="Count down the remaining letters." src="img/glyphicons/glyphicons_219_circle_arrow_down.png" style="display: none;" />
           </div>
           <div>
             <span id="letterCount" class="letterCount"></span>
@@ -56,29 +73,12 @@
       </div>
     </div>
 
-    <!-- Button to trigger modal -->
-    <!-- <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a> -->
-
-    <!-- Modal
-         ================================================== -->
-    <div id="limit-modal" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-header">
-        <h3 id="limitLabel">Limit Number</h3>
-      </div>
-      <div class="modal-body">
-        <input type="number" id="limit" tabindex="1" min="1" placeholder="Type limit number..." class="input-large" required />
-      </div>
-      <div class="modal-footer">
-        <button id="save" tabindex="2" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">save</button>
-      </div>
-    </div>
-
     <!-- Le javascript
          ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript">
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-32479119-1']);
+      _gaq.push(['_setAccount', 'UA-36733650-1']);
       _gaq.push(['_trackPageview']);
       (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
