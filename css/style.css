@@ -1,0 +1,16 @@
+.broaden,
+.counter,
+.letterCount {
+    margin: 0px 0px 10px 5px;
+}
+
+.letterCount{
+    font-size:30px;
+    font-weight:bold;
+    color:#ccc;
+}
+
+.modal {
+    width: 300px;
+    left: 60%;
+}
