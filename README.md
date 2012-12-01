@@ -2,8 +2,8 @@
 テキストフィールドに入力された文字数のカウントアップ、または制限文字数までのカウントダウン機能を提供するWebサービスです。
 大学のレポート作成や経歴書編集の手助けにどうぞ。
 
-# Place
-## [letter-counter.appspot.com][url]
+## Place
+[letter-counter.appspot.com][url]
 
 ## Screenshot
 ![Screenshot](https://raw.github.com/perforb/letter-counter/master/screenshot.png "screenshot")
