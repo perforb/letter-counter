@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootswatch-cerulean.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jQueryRotate.2.2.js"></script>
     <script type="text/javascript" src="js/bootstrap-alert.js"></script>
     <script type="text/javascript" src="js/bootstrap-transition.js"></script>
     <script type="text/javascript" src="js/bootstrap-modal.js"></script>
@@ -59,12 +60,11 @@
             <textarea id="text" style="float: left; width: 60%;"></textarea>
           </div>
           <div>
-            <img class="expand" title="expand" data-content="Expands the textarea." src="img/glyphicons/glyphicons_190_circle_plus.png" />
-            <img class="expand" title="shrink" data-content="Shrinks the textarea." src="img/glyphicons/glyphicons_191_circle_minus.png" style="display: none;" />
+            <img class="resize" title="expand" data-content="Expands the textarea." src="img/glyphicons/glyphicons_190_circle_plus.png" />
+            <img class="resize" title="shrink" data-content="Shrinks the textarea." src="img/glyphicons/glyphicons_191_circle_minus.png" style="display: none;" />
           </div>
           <div>
-            <img class="counter" title="countup" data-content="Count up the letters." src="img/glyphicons/glyphicons_218_circle_arrow_top.png" />
-            <img class="counter" title="countdown" data-content="Count down the remaining letters." src="img/glyphicons/glyphicons_219_circle_arrow_down.png" style="display: none;" />
+            <img id="counter" class="counter" title="countup" data-content="Count up the letters." src="img/glyphicons/glyphicons_218_circle_arrow_top.png" />
           </div>
           <div>
             <span id="letterCount" class="letterCount"></span>

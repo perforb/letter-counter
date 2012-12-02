@@ -3,6 +3,7 @@ $(function() {
   var expanded = false;
   var isCountUp = false;
   var counter = countUp;
+  var icon_angle = 0;
   var fps = 33;
   var limit = 140;
   var warning = 0;
@@ -52,13 +53,30 @@ $(function() {
   // Events
   // ======================
 
+  /* Textarea */
+
   $(window).resize(function() {
     resize();
   });
 
-  $('.expand').click(function() {
+  $('#text').focus(function() {
+    timerID = counter();
+  });
+
+  $('#text').blur(function() {
+    clearInterval(timerID);
+  });
+
+  /* Resize button */
+
+  $('.resize').tooltip({
+    placement: 'right',
+    trigger: 'hover'
+  });
+
+  $('.resize').click(function() {
     $('.tooltip').remove();
-    $('.expand').toggle();
+    $('.resize').toggle();
     if (expanded) {
       expand({
         width: 60
@@ -75,46 +93,62 @@ $(function() {
     }
   });
 
-  $('.counter').click(function() {
-    $('.tooltip').remove();
-    $('.counter').toggle();
-    if (isCountUp) {
-      counter = countUp;
-      isCountUp = !isCountUp;
-      $('#text').focus();
-    }
-    else {
-      counter = countDown;
-      isCountUp = !isCountUp;
-      $('#text').focus().blur();
-      $('#limit').val(limit);
-      if (limit > 0) {
-        $('#save').removeAttr('disabled');
+  /* Counter button */
+
+  $('#counter').tooltip({
+    placement: 'right',
+    trigger: 'hover'
+  });
+
+  $('#counter').rotate({
+    bind: {
+      click: function(){
+        $('#counter').tooltip('destroy');
+        icon_angle += 180;
+        $(this).rotate({
+          animateTo: icon_angle
+        });
+        if (isCountUp) {
+          counter = countUp;
+          isCountUp = !isCountUp;
+          $(this).attr({
+            title: 'countup',
+            'data-content': 'Count up the letters.'
+          });
+          $('#text').focus();
+          $('#counter').tooltip({
+            placement: 'right',
+            trigger: 'hover',
+            title: this.title
+          });
+        }
+        else {
+          counter = countDown;
+          isCountUp = !isCountUp;
+          $('#text').focus().blur();
+          $('#limit').val(limit);
+          $(this).attr({
+            title: 'countdown',
+            'data-content': 'Count down the remaining letters.'
+          });
+          if (limit > 0) {
+            $('#save').removeAttr('disabled');
+          }
+          $('#limit-modal').modal({
+            keyboard: false
+          });
+          $('#limit').focus();
+          $('#counter').tooltip({
+            placement: 'right',
+            trigger: 'hover',
+            title: this.title
+          });
+        }
       }
-      $('#limit-modal').modal({
-        keyboard: false
-      });
-      $('#limit').focus();
     }
   });
 
-  $('#text').focus(function() {
-    timerID = counter();
-  });
-
-  $('#text').blur(function() {
-    clearInterval(timerID);
-  });
-
-  $('.expand').tooltip({
-    placement: 'right',
-    trigger: 'hover'
-  });
-
-  $('.counter').tooltip({
-    placement: 'right',
-    trigger: 'hover'
-  });
+  /* Modal */
 
   $('#limit').keyup(function() {
     var num = parseInt($('#limit').val(), 10) || 0;
