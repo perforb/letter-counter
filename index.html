@@ -24,18 +24,6 @@
   </head>
   <body>
 
-    <!-- Modal
-         ================================================== -->
-    <div id="limit-modal" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-header">
-        <h4 id="limitLabel">Limit Number</h4>
-      </div>
-      <div class="modal-footer">
-        <input type="text" id="limit" min="1" maxlength="6" placeholder="number only" class="input-small" style="float: left;" />
-        <button id="save" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">save</button>
-      </div>
-    </div>
-
     <!-- Header
          ================================================== -->
     <div id="header" class="navbar navbar-inverse navbar-fixed-top">
@@ -67,7 +55,11 @@
             <img id="counter" class="counter" title="countup" data-content="Count up the letters." src="img/glyphicons/glyphicons_218_circle_arrow_top.png" />
           </div>
           <div>
-            <span id="letterCount" class="letterCount"></span>
+            <span id="number" class="number"></span>
+          </div>
+          <div id="limit-unit" class="limit-unit" style="display: none;">
+            <input type="text" id="limit" min="1" maxlength="6" placeholder="limit number" class="input-small" style="float: left;" />
+            <button id="save" class="btn btn-primary">save</button>
           </div>
         </div>
       </div>

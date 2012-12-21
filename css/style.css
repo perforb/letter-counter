@@ -1,16 +1,19 @@
 .resize,
 .counter,
-.letterCount {
+.number {
     margin: 0px 0px 10px 5px;
 }
 
-.letterCount{
+.number {
     font-size:30px;
     font-weight:bold;
     color:#ccc;
 }
 
-.modal {
-    width: 200px;
-    left: 70%;
+.limit-unit {
+    margin: 5px 0px 10px 5px;
+}
+
+.limit-unit > input {
+    margin: 0px 0px 0px 5px;
 }
